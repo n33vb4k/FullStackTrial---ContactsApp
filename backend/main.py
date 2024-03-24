@@ -2,6 +2,7 @@ from flask import request, jsonify
 from config import app, db
 from models import Contact
 
+
 #defines what happens when the website route is /contacts - just views the list
 @app.route("/contacts", methods=["GET"])
 def get_contacts():
@@ -34,7 +35,7 @@ def create_contact():
 
 
 #defines what happens when trying to update a contact with a specified user_id
-@app.route("/update_contact/<int:user_id>", method = ["PATCH"])
+@app.route("/update_contact/<int:user_id>", methods = ["PATCH"])
 def update_contact(user_id):
     contact = Contact.query.get(user_id)
 
@@ -53,7 +54,7 @@ def update_contact(user_id):
     return jsonify({"message": "User updated"}), 200
 
 
-@app.route("/delete_contact/<int:user_id>", method = ["DELETE"])
+@app.route("/delete_contact/<int:user_id>", methods = ["DELETE"])
 def delete_contact(user_id): 
     contact = Contact.query.get(user_id)
 
