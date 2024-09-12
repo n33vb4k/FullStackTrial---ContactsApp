@@ -2,6 +2,8 @@ from flask import request, jsonify
 from config import app, db
 from models import Contact
 
+#to start server run python3 main.py
+
 
 #defines what happens when the website route is /contacts - just views the list
 @app.route("/contacts", methods=["GET"])
